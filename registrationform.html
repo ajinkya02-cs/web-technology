@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="regform.css">
+    <title>Registration Page</title>
+</head>
+<body>
+
+    <h2>REGISTRATION PAGE VALIDATION</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        First Name:<br>
+        <input type="text" id="first name" required minlength="3"><br><br>
+
+        Last Name:<br>
+        <input type="text" id="lastname" required minlength="3"><br><br>
+
+        Email:<br>
+        <input type="email" id="email" required><br><br>
+
+        Phone:<br>
+        <input type="tel" id="phone" pattern="[0-9]{10}" required><br><br>
+
+        Password:<br>
+        <input type="password" id="password" required minlength="6"><br><br>
+
+        Confirm Password:<br>
+        <input type="password" id="confirmPassword" required><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        function validateForm() {
+            let password = document.getElementById('password').value;
+            let confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false; 
+            }
+            return true; 
+        }
+    </script>
+
+</body>
+</html>
